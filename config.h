@@ -124,6 +124,8 @@ static const int cursor_timeout = 5;
 
 #define VOLCMD(arg) SHCMD("/bin/pulsemixer " arg)
 
+#define BRIGHTNESSCMD(arg) SHCMD("/bin/xbacklight " arg)
+
 /* commands */
 static const char *termcmd[] = { TERMINAL, NULL };
 
@@ -131,13 +133,25 @@ static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier             chain, key                 function        argument */
 
+    /* Screen Brightness Controls */
+    { MODKEY|ALT,        -1,   XKB_KEY_1,                spawn,          BRIGHTNESSCMD("10") },
+    { MODKEY|ALT,        -1,   XKB_KEY_2,                spawn,          BRIGHTNESSCMD("20") },
+    { MODKEY|ALT,        -1,   XKB_KEY_3,                spawn,          BRIGHTNESSCMD("30") },
+    { MODKEY|ALT,        -1,   XKB_KEY_4,                spawn,          BRIGHTNESSCMD("40") },
+    { MODKEY|ALT,        -1,   XKB_KEY_5,                spawn,          BRIGHTNESSCMD("50") },
+    { MODKEY|ALT,        -1,   XKB_KEY_6,                spawn,          BRIGHTNESSCMD("60") },
+    { MODKEY|ALT,        -1,   XKB_KEY_7,                spawn,          BRIGHTNESSCMD("70") },
+    { MODKEY|ALT,        -1,   XKB_KEY_8,                spawn,          BRIGHTNESSCMD("80") },
+    { MODKEY|ALT,        -1,   XKB_KEY_9,                spawn,          BRIGHTNESSCMD("90") },
+    { MODKEY|ALT,        -1,   XKB_KEY_0,                spawn,          BRIGHTNESSCMD("0") },
+
     /* Volume Controls */
-    { MODKEY,            -1,   XKB_KEY_equal,            spawn,          VOLCMD("--change-volume +5") }, \
-    { MODKEY|CTRL,       -1,   XKB_KEY_equal,            spawn,          VOLCMD("--change-volume +1") }, \
-    { MODKEY|SHIFT,      -1,   XKB_KEY_plus,             spawn,          VOLCMD("--change-volume +20") }, \
-    { MODKEY,            -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -5") }, \
-    { MODKEY|CTRL,       -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -1") }, \
-    { MODKEY|SHIFT,      -1,   XKB_KEY_underscore,       spawn,          VOLCMD("--change-volume -20") }, \
+    { MODKEY,            -1,   XKB_KEY_equal,            spawn,          VOLCMD("--change-volume +5") },
+    { MODKEY|CTRL,       -1,   XKB_KEY_equal,            spawn,          VOLCMD("--change-volume +1") },
+    { MODKEY|SHIFT,      -1,   XKB_KEY_plus,             spawn,          VOLCMD("--change-volume +20") },
+    { MODKEY,            -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -5") },
+    { MODKEY|CTRL,       -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -1") },
+    { MODKEY|SHIFT,      -1,   XKB_KEY_underscore,       spawn,          VOLCMD("--change-volume -20") },
 	{ MODKEY,            -1,   XKB_KEY_m,                spawn,          VOLCMD("--toggle-mute") },
 
     /* Terminal Based Applications */
