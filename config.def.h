@@ -16,11 +16,12 @@ static const Rule rules[] = {
 	* When x or y == 0 the client is placed at the center of the screen,
 	* when width or height == 0 the default size of the client is used*/
 
-	/* app_id       title       tags mask     isfloating   monitor  x    y    width  height */
+	/* app_id     title       tags mask     isfloating   monitor scratchkey  x    y    width  height */
 	/* examples:
-	{ "Gimp",       NULL,       0,            1,           -1, 	    0, 	 0,   500,   400 },
-    */
-	{ "firefox",    NULL,       1 << 8,       0,           -1, 	    200, 100, 0,     0 },
+	{ "Gimp",       NULL,       0,            1,           -1, 	  0,   0, 	 0,   500,   400 },
+	*/
+	{ "firefox",  NULL,       1 << 8,       0,           -1,      0,   0, 	 0,   500,   400 },
+	{ NULL,     "scratchpad", 0,            1,           -1,     's',  200,  100, 0,     0 },
 };
 
 /* layout(s) */
@@ -106,11 +107,15 @@ static const double accel_speed = 0.0;
 static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "bemenu-run", NULL };
 
+/* named scratchpads - First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = { "s", "alacritty", "-t", "scratchpad", NULL };
+
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  chain,  key                 function        argument */
 	{ MODKEY,                    -1, XKB_KEY_p,          spawn,          {.v = menucmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, -1, XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ MODKEY,                    -1, XKB_KEY_grave,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                    -1, XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    -1, XKB_KEY_k,          focusstack,     {.i = -1} },
 	{ MODKEY,                    -1, XKB_KEY_i,          incnmaster,     {.i = +1} },
