@@ -1,6 +1,6 @@
 /* appearance */
 static const int sloppyfocus        = 0;  /* focus follows mouse */
-static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int borderpx  = 4;  /* border pixel of windows */
 static const int lockfullscreen     = 1;  /* 1 will force focus on the fullscreen window */
 static const float rootcolor[]      = {0.3, 0.3, 0.3, 1.0};
 static const float bordercolor[]    = {0.0, 0.0, 0.0, 0.5};
