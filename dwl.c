@@ -209,11 +209,11 @@ typedef struct {
 	unsigned int tags;
 	int isfloating;
 	int monitor;
+	const char scratchkey;
 	int x;
 	int y;
 	int w;
 	int h;
-	const char scratchkey;
 } Rule;
 
 /* function declarations */
