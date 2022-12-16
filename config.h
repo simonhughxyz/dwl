@@ -9,7 +9,7 @@ static const float focuscolor[]     = {1.0, 0.0, 1.0, 0.5};
 static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 1.0};
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22" };
 
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor */
@@ -137,6 +137,19 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                  6),
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                   7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                  8),
+	TAGKEYS(          XKB_KEY_0, XKB_KEY_parenright,                 10),
+	TAGKEYS(          XKB_KEY_F1, XKB_KEY_F1,                        11),
+	TAGKEYS(          XKB_KEY_F2, XKB_KEY_F2,                        12),
+	TAGKEYS(          XKB_KEY_F3, XKB_KEY_F3,                        13),
+	TAGKEYS(          XKB_KEY_F4, XKB_KEY_F4,                        14),
+	TAGKEYS(          XKB_KEY_F5, XKB_KEY_F5,                        15),
+	TAGKEYS(          XKB_KEY_F6, XKB_KEY_F6,                        16),
+	TAGKEYS(          XKB_KEY_F7, XKB_KEY_F7,                        17),
+	TAGKEYS(          XKB_KEY_F8, XKB_KEY_F8,                        18),
+	TAGKEYS(          XKB_KEY_F9, XKB_KEY_F9,                        19),
+	TAGKEYS(          XKB_KEY_F10, XKB_KEY_F10,                      20),
+	TAGKEYS(          XKB_KEY_F11, XKB_KEY_F11,                      21),
+	TAGKEYS(          XKB_KEY_F12, XKB_KEY_F12,                      22),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
