@@ -109,7 +109,7 @@ static const double accel_speed = 0.0;
 
 
 /* commands */
-static const char *termcmd[] = { "foot", NULL };
+static const char *termcmd[] = { TERMINAL, NULL };
 static const char *menucmd[] = { "bemenu-run", NULL };
 
 static const Key keys[] = {
