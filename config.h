@@ -101,6 +101,9 @@ static const double accel_speed = 0.0;
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+/* helper to launch terminal based application */
+#define TERMCMD(class, title, cmd) SHCMD(TERMINAL " -c " class " -t " title " -e " cmd)
+
 #define TAGKEYS(KEY,SKEY,TAG) \
 	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
 	{ MODKEY|CTRL,               KEY,            toggleview,      {.ui = 1 << TAG} }, \
