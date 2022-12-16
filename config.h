@@ -122,6 +122,7 @@ static const int cursor_timeout = 5;
 	{ MODKEY|WLR_MODIFIER_SHIFT, -1, SKEY,           tag,             {.ui = 1 << TAG} }, \
 	{ MODKEY|WLR_MODIFIER_CTRL|WLR_MODIFIER_SHIFT,-1,SKEY,toggletag,  {.ui = 1 << TAG} }
 
+#define VOLCMD(arg) SHCMD("/bin/pulsemixer " arg)
 
 /* commands */
 static const char *termcmd[] = { TERMINAL, NULL };
@@ -129,6 +130,15 @@ static const char *termcmd[] = { TERMINAL, NULL };
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier             chain, key                 function        argument */
+
+    /* Volume Controls */
+    { MODKEY,            -1,   XKB_KEY_equal,            spawn,          VOLCMD("--change-volume +5") }, \
+    { MODKEY|CTRL,       -1,   XKB_KEY_equal,            spawn,          VOLCMD("--change-volume +1") }, \
+    { MODKEY|SHIFT,      -1,   XKB_KEY_plus,             spawn,          VOLCMD("--change-volume +20") }, \
+    { MODKEY,            -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -5") }, \
+    { MODKEY|CTRL,       -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -1") }, \
+    { MODKEY|SHIFT,      -1,   XKB_KEY_underscore,       spawn,          VOLCMD("--change-volume -20") }, \
+	{ MODKEY,            -1,   XKB_KEY_m,                spawn,          VOLCMD("--toggle-mute") },
 
     /* Terminal Based Applications */
 	{ MODKEY,            -1,   XKB_KEY_n,                spawn,          TERMCMD("neomutt", "neomutt", "neomutt") },
