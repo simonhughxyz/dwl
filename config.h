@@ -95,14 +95,18 @@ static const double accel_speed = 0.0;
 /* If you want to use the windows key change this to LOGO */
 #define MODKEY ALT
 
+/* default terminal */
+#define TERMINAL "/usr/local/bin/st"
+
+/* helper for spawning shell commands in the pre dwm-5.0 fashion */
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
 #define TAGKEYS(KEY,SKEY,TAG) \
 	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
 	{ MODKEY|CTRL,               KEY,            toggleview,      {.ui = 1 << TAG} }, \
 	{ MODKEY|SHIFT,              SKEY,           tag,             {.ui = 1 << TAG} }, \
 	{ MODKEY|CTRL|SHIFT,         SKEY,           toggletag,       {.ui = 1 << TAG} }
 
-/* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
 static const char *termcmd[] = { "foot", NULL };
