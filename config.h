@@ -119,6 +119,9 @@ static const int cursor_timeout = 5;
 /* helper to launch terminal based application */
 #define TERMCMD(class, title, cmd) SHCMD(TERMINAL " -c " class " -t " title " -e " cmd)
 
+/* helper to launch scratchpad applications */
+#define SCRATCHCMD(skey, class, title, cmd) { .v = (const char*[]){skey, "/bin/sh", "-c", TERMINAL " -a " class " -T " title " -e " cmd, NULL} }
+
 #define TAGKEYS(KEY,SKEY,TAG) \
 	{ MODKEY,                    -1, KEY,            view,            {.ui = 1 << TAG} }, \
 	{ MODKEY|WLR_MODIFIER_CTRL,  -1, KEY,            toggleview,      {.ui = 1 << TAG} }, \
