@@ -22,15 +22,18 @@ static const Rule rules[] = {
 	* When x or y == 0 the client is placed at the center of the screen,
 	* when width or height == 0 the default size of the client is used*/
 
-	/* app_id     title       tags mask     isfloating   monitor scratchkey  x    y    width  height */
-	{ "powermenu", NULL,      0,            1,           -1,     'P',  0, 0, 500,  300},
-	{ "passmenu",  NULL,      0,            1,           -1,     'p',  0, 0, 500,  500},
-	{ "homemenu",  NULL,      0,            1,           -1,     'h',  0, 0, 800,  400},
-	{ "appmenu",   NULL,      0,            1,           -1,     'o',  0, 0, 800,  400},
-	{ "clipmenu",  NULL,      0,            1,           -1,     'c',  0, 0, 800,  400},
-	{ "srmenu",    NULL,      0,            1,           -1,     's',  1, 1, 1910, 200},
-	{ "fxwm",      NULL,      0,            1,           -1,     'f',  0, 0, 800,  400},
-	{ "calc",      NULL,      0,            1,           -1,     'C',  0, 0, 800,  400},
+	/* app_id     title       tags mask   floating  monitor scratch  x  y  width  height */
+	{ "mpv",      NULL,       1 << 22,    0,        -1,      0,      0, 0, 1000,  500},
+
+    /* scratchpads */
+	{ "powermenu", NULL,      0,          1,        -1,     'P',     0, 0, 500,   300},
+	{ "passmenu",  NULL,      0,          1,        -1,     'p',     0, 0, 500,   500},
+	{ "homemenu",  NULL,      0,          1,        -1,     'h',     0, 0, 800,   400},
+	{ "appmenu",   NULL,      0,          1,        -1,     'o',     0, 0, 800,   400},
+	{ "clipmenu",  NULL,      0,          1,        -1,     'c',     0, 0, 800,   400},
+	{ "srmenu",    NULL,      0,          1,        -1,     's',     1, 1, 1910,  200},
+	{ "fxwm",      NULL,      0,          1,        -1,     'f',     0, 0, 800,   400},
+	{ "calc",      NULL,      0,          1,        -1,     'C',     0, 0, 800,   400},
 };
 
 /* layout(s) */
