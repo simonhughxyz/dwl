@@ -23,11 +23,14 @@ static const Rule rules[] = {
 	* when width or height == 0 the default size of the client is used*/
 
 	/* app_id     title       tags mask     isfloating   monitor scratchkey  x    y    width  height */
-	/* examples:
-	{ "Gimp",       NULL,       0,            1,           -1, 	  0,   0, 	 0,   500,   400 },
-	*/
-	{ "firefox",  NULL,       1 << 8,       0,           -1,      0,   0, 	 0,   500,   400 },
-	{ NULL,     "scratchpad", 0,            1,           -1,     's',  200,  100, 0,     0 },
+	{ "powermenu", NULL,      0,            1,           -1,     'P',  0, 0, 500,  300},
+	{ "passmenu",  NULL,      0,            1,           -1,     'p',  0, 0, 500,  500},
+	{ "homemenu",  NULL,      0,            1,           -1,     'h',  0, 0, 800,  400},
+	{ "appmenu",   NULL,      0,            1,           -1,     'o',  0, 0, 800,  400},
+	{ "clipmenu",  NULL,      0,            1,           -1,     'c',  0, 0, 800,  400},
+	{ "srmenu",    NULL,      0,            1,           -1,     's',  1, 1, 1910, 200},
+	{ "fxwm",      NULL,      0,            1,           -1,     'f',  0, 0, 800,  400},
+	{ "calc",      NULL,      0,            1,           -1,     'C',  0, 0, 800,  400},
 };
 
 /* layout(s) */
@@ -153,6 +156,15 @@ static const Key keys[] = {
     { MODKEY|CTRL,       -1,   XKB_KEY_minus,            spawn,          VOLCMD("--change-volume -1") },
     { MODKEY|SHIFT,      -1,   XKB_KEY_underscore,       spawn,          VOLCMD("--change-volume -20") },
 	{ MODKEY,            -1,   XKB_KEY_m,                spawn,          VOLCMD("--toggle-mute") },
+
+    /* Scratchpads */
+	{ CTRL|ALT,          -1,   XKB_KEY_Delete,           togglescratch,  SCRATCHCMD("P", "powermenu", "power", "powermenu") },
+	{ MODKEY|SHIFT,      -1,   XKB_KEY_P,                togglescratch,  SCRATCHCMD("p", "passmenu", "pass", "pass menu") },
+	{ MODKEY,            -1,   XKB_KEY_a,                togglescratch,  SCRATCHCMD("h", "homemenu", "home", "home") },
+	{ MODKEY,            -1,   XKB_KEY_o,                togglescratch,  SCRATCHCMD("o", "appmenu", "apps", "appmenu") },
+	{ MODKEY,            -1,   XKB_KEY_c,                togglescratch,  SCRATCHCMD("c", "clipmenu", "clip", "fclip") },
+	{ MODKEY,            -1,   XKB_KEY_s,                togglescratch,  SCRATCHCMD("s", "srmenu", "search", "srmenu") }, 
+	{ MODKEY|SHIFT,      -1,   XKB_KEY_C,                togglescratch,  SCRATCHCMD("C", "calc", "calc", "qalc") },
 
     /* Terminal Based Applications */
 	{ MODKEY,            -1,   XKB_KEY_n,                spawn,          TERMCMD("neomutt", "neomutt", "neomutt") },
