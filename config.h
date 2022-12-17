@@ -135,6 +135,7 @@ static const int cursor_timeout = 5;
 /* commands */
 static const char *termcmd[] = { TERMINAL, NULL };
 static const char *lockcmd[]  = { "lock", NULL };
+static const char *webcmd[]  = { "www", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -183,6 +184,7 @@ static const Key keys[] = {
     /* Other Applications */
 	{ MODKEY,            -1,   XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,            -1,   XKB_KEY_x,          spawn,          {.v = lockcmd} },
+	{ MODKEY,            -1,   XKB_KEY_w,          spawn,          {.v = webcmd} },
     
     /* Navigation */
 	{ MODKEY,            -1,   XKB_KEY_j,          focusstack,     {.i = +1} },
